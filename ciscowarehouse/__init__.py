@@ -1,6 +1,6 @@
 import json
 import os
-from flask import Flask
+from flask import Flask, render_template
 from flask_mysqldb import MySQL
 
 
@@ -21,7 +21,7 @@ def create_app(test_config=None):
     #A simple page that says hello
     @app.route('/hello')
     def hello():
-        return 'Hello World!'
+        return render_template('hello.html',title='HELLO',username='Matt')
 
     @app.route('/database')
     def database():
