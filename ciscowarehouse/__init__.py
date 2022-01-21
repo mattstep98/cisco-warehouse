@@ -1,7 +1,7 @@
+import json
 import os
 from flask import Flask
 from flask_mysqldb import MySQL
-import json
 
 
 def create_app(test_config=None):
