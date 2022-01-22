@@ -1,6 +1,6 @@
 import json
 import os
-from flask import Flask
+from flask import Flask, render_template
 from flask_mysqldb import MySQL
 
 
@@ -21,7 +21,7 @@ def create_app(test_config=None):
     #A simple page that says hello
     @app.route('/hello')
     def hello():
-        return 'Hello World!'
+        return render_template('hello.html', title='HELLO', username='TEST')
 
     @app.route('/database')
     def database():
@@ -30,5 +30,10 @@ def create_app(test_config=None):
         response = cursor.fetchall()
         cursor.close()
         return str(response)
+
+
+    from . import auth
+    app.register_blueprint(auth.bp)
+
 
     return app
