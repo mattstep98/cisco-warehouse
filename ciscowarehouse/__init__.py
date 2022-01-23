@@ -46,8 +46,20 @@ def create_app(test_config=None):
         cursor.close()
         return str(response)
 
+    # @app.route('/home')
+    # @login_required
+    # def home():
+    #     return redirect(url_for('home.home'))
+
+
+
+
+
     from . import auth
     app.register_blueprint(auth.bp)
+
+    from . import home
+    app.register_blueprint(home.bp)
 
     return app
 

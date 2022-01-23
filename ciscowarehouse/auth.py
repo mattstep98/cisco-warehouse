@@ -59,7 +59,7 @@ def login():
             session.clear()
             session['user_id'] = user[0]
             session['username'] = user[1]
-            return redirect(url_for('hello'))
+            return redirect(url_for('home.home'))
 
         flash(error)
 
