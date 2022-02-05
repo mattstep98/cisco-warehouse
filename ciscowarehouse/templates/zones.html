@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Zones{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h1>Hello {{ username }}</h1>
+    <h2>Zones Page</h2>
+    <table>
+        <tr>
+            <th>Zone</th>
+            <th>Project Number</th>
+            <th>Description</th>
+            <th>ID</th>
+        </tr>
+    {% for inventory in inventoryByZoneAsc %}
+        <tr>
+            <td> {% print(inventory[3]) %} </td>
+            <td> {% print(inventory[1]) %} </td>
+            <td> {% print(inventory[2]) %} </td>
+            <td> {% print(inventory[0]) %} </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

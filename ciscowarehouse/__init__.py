@@ -3,6 +3,7 @@ import os
 from flask import Flask, render_template,session,redirect,url_for,g
 from flask_mysqldb import MySQL
 from . import auth
+from . import zones
 import functools
 
 def create_app(test_config=None):
@@ -60,6 +61,10 @@ def create_app(test_config=None):
 
     from . import home
     app.register_blueprint(home.bp)
+
+    from . import zones
+    app.register_blueprint(zones.bp)
+
 
     return app
 
